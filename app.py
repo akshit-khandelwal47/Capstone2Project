@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 
-model = pickle.load(open('ForestModelOld.pickle','rb'))
+model = pickle.load(open('ForestModel.pickle','rb'))
 app = Flask(__name__)
 
 @app.route('/')
@@ -19,18 +19,36 @@ def predict():
     # prediction = model.predict(final)
     # output='{0:.{1}f}'.format(prediction[0][1], 2)
     
-    features = [float(i) for i in request.form.values()]
+    lat = request.form.get("t1",type=float,default=0)
+    lon = request.form.get("t1",type=float,default=0)
+    bright = request.form.get("t1",type=float,default=0)
+    satellite = request.form.get("t1",type=float,default=0)
+    frp = request.form.get("t1",type=float,default=0)
+    dayn = request.form.get("t1",type=float,default=0)
+    type2 = request.form.get("t1",type=float,default=0)
+    type3 = request.form.get("t1",type=float,default=0)
+    scan = request.form.get("t1",type=float,default=0)
+    year = request.form.get("t1",type=float,default=0)
+    month = request.form.get("t1",type=float,default=0)
+    day = request.form.get("t1",type=float,default=0)
+    
+    # features = [float(i) for i in request.form.values()]
     # Convert features to array
-    array_features = [np.array(features)]
-    # Predict features
-    prediction = model.predict(array_features)
- 
-    output = prediction
+    lis = [[lat,lon,bright,satellite,frp,dayn,type2,type3,scan,year,month,day]]
+    # a = np.empty(12)
+    # for i in range(0,12):
 
-    if output>str(0.5):
-        return render_template('forest_fire.html',pred='Your Forest is in Danger.\nPercentage of fire occuring is {}%'.format(float(output)*100),bhai="danger")
+    # array_features = [np.array(features)]
+    # Predict features
+    prediction = model.predict(lis)
+ 
+    output = prediction[0]
+    print(output)
+
+    if output> 50:
+        return render_template('forest_fire.html',pred='Your Forest is in Danger.\nPercentage of fire occuring is {}%'.format(float(output)),bhai="danger")
     else:
-        return render_template('forest_fire.html',pred='Your Forest is safe.\n Percentage of fire occuring is {}%'.format(float(output)*100),bhai="safe")
+        return render_template('forest_fire.html',pred='Your Forest is safe.\n Percentage of fire occuring is {}%'.format(float(output)),bhai="safe")
 
 if __name__ == '__main__':
     app.run(debug=True)
