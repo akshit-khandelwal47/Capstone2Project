@@ -16,22 +16,138 @@
         <h1 class="text-white mt-2">Forest Fire Prediction</h1>
         <h5 class="text-white ">Predict the percentage of Forest-Fire Occurence</h5>
         <form action='/predict' method="post">
-         <div class="row">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Latitude</label>
+              <input type="Latitude" class="form-control" id="inputEmail4" placeholder="Latitude negative">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">longitude</label>
+              <input type="longitude" class="form-control" id="inputPassword4" placeholder="longitude positive">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">brightness</label>
+              <input type="brightness" class="form-control" id="inputEmail4" placeholder="brightness">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">satellite</label>
+              <input type="satellite" class="form-control" id="inputPassword4" placeholder="terra 1, aqua 0">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">frp</label>
+              <input type="frp" class="form-control" id="inputEmail4" placeholder="frp">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">daynight</label>
+              <input type="daynight" class="form-control" id="inputPassword4" placeholder="1 for day,0 for night">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">type_2</label>
+              <input type="type_2" class="form-control" id="inputEmail4" placeholder="type_2">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">type_3</label>
+              <input type="type_3" class="form-control" id="inputPassword4" placeholder="type_3">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">scan</label>
+              <input type="scan" class="form-control" id="inputEmail4" placeholder="scan">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">year</label>
+              <input type="year" class="form-control" id="inputPassword4" placeholder="year">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">month</label>
+              <input type="text" class="form-control" id="inputEmail4" placeholder="month in number">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">day</label>
+              <input type="day" class="form-control" id="inputPassword4" placeholder="day in number">
+            </div>
+          </div>
+          <!-- <div class="ml-3 mb-1 mt-2">
+          
+            <button type="submit"  class="button">Predict</button>
+          
+         </div> -->
+         <div class="text-center">
+          <button type="submit" class="btn btn-danger">Predict</button>
+        </div>
+         <!-- <div class="col-sm-12 col-lg-4  d-flex align-items-center">
+          <h4 class="prediction">{{pred}}</h4>
+         </div> -->
+
+          <!-- <div class="form-row">
+            <div class="form-group col-md-6"> -->
+         <!-- <div class="row">
            <div class="col-sm-12 col-lg-6 cardbg">
              <div class="row">
               <div class="col-12 mt-3 mb-1">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Temperature</label>
-                  <input  class="form-control validate border border-warning" placeholder="Temperature in Celsius" name="Temperature" id="first_name" type="text" >
+                <div class="form-group"> -->
+                  <!-- <label for="exampleInputEmail1">Latitude</label>
+                  <input  class="form-control validate border border-warning" placeholder="latitude in negative degrees" name="latitude" id="first_name" type="text" >
                 </div>
+                <div class="col-12 mb-3">
+                  <label for="exampleInputEmail1">longitude</label> 
+                  <input id="last_name" name="longitude" placeholder="longitude in positive value of degrees"  type="text" class="validate form-control border border-warning">
+                 </div>
+
+
+               </div> -->
+               <!-- <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">longitude</label> 
+                <input id="last_name" name="longitude" placeholder="longitude in positive value of degrees"  type="text" class="validate form-control border border-warning">
+               </div> -->
+               <!-- <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">brightness</label>
+                <input  id="_name" name="brightness" placeholder="brightness " type="text" class="validate form-control border border-warning">
                </div>
                <div class="col-12 mb-3">
-                <label for="exampleInputEmail1">Oxygen</label> 
-                <input id="last_name" name="Oxygen" placeholder="Oxygen content in ppm"  type="text" class="validate form-control border border-warning">
+                <label for="exampleInputEmail1">satellite</label>
+                <input  id="_name" name="satellite" placeholder="terra 1, aqua 0 " type="text" class="validate form-control border border-warning">
                </div>
                <div class="col-12 mb-3">
-                <label for="exampleInputEmail1">Humidity</label>
-                <input  id="_name" name="Humidity" placeholder="Humidity %" type="text" class="validate form-control border border-warning">
+                <label for="exampleInputEmail1">frp</label>
+                <input  id="_name" name="frp" placeholder="frp" type="text" class="validate form-control border border-warning">
+               </div>
+               <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">daynight</label>
+                <input  id="_name" name="daynight" placeholder=" 1 for day,0 for night " type="text" class="validate form-control border border-warning">
+               </div>
+               <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">type_2</label>
+                <input  id="_name" name="type_2" placeholder="type_2" type="text" class="validate form-control border border-warning">
+               </div>
+               <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">type_3</label>
+                <input  id="_name" name="type_3" placeholder="type_3" type="text" class="validate form-control border border-warning">
+               </div>
+               <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">scan</label>
+                <input  id="_name" name="scan" placeholder="scan" type="text" class="validate form-control border border-warning">
+               </div>
+               <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">year</label>
+                <input  id="_name" name="year" placeholder="year" type="text" class="validate form-control border border-warning">
+               </div>
+               <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">month</label>
+                <input  id="_name" name="month" placeholder="month in numericvalue" type="text" class="validate form-control border border-warning">
+               </div>
+               <div class="col-12 mb-3">
+                <label for="exampleInputEmail1">day</label>
+                <input  id="_name" name="day" placeholder="day in number" type="text" class="validate form-control border border-warning">
                </div>
                <div class="ml-3 mb-1 mt-2">
                  <button type="submit" class="button">Predict</button>
@@ -41,7 +157,7 @@
            <div class="col-sm-12 col-lg-4  d-flex align-items-center">
             <h4 class="prediction">{{pred}}</h4>
            </div>
-         </div>
+         </div> -->
         </form>
         </div>
       
