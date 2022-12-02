@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: '4d2d495b-030e-4643-bc34-29cfa6a221f0', url: 'https://github.com/akshit-khandelwal47/Capstone2Project.git/']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '4d2d495b-030e-4643-bc34-29cfa6a221f0', url: 'https://github.com/akshit-khandelwal47/Capstone2Project.git/']]])
             }
         }
         stage('Build') {
@@ -12,10 +12,21 @@ pipeline {
                 git branch: 'main', credentialsId: '4d2d495b-030e-4643-bc34-29cfa6a221f0', url: 'https://github.com/akshit-khandelwal47/Capstone2Project.git/'
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
-                echo "The job has been tested"
+                bat 'python app.py'
             }
         }
+        stage('Test') {
+            steps {
+                bat 'python -m pytest'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }  
     }
 }
+
