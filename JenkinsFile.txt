@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                git branch: 'main', credentialsId: '4d2d495b-030e-4643-bc34-29cfa6a221f0', url: 'https://github.com/akshit-khandelwal47/Capstone2Project.git'
+                bat 'python app.py'
             }
         }
         stage('Test') {
